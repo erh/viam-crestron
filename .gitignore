@@ -1,0 +1,7 @@
+cfg/
+*.env
+bin/
+/crestron-cli
+/crestron-console
+/crestron-fetch
+module.tar.gz

@@ -1,0 +1,116 @@
+Crestron Home CP4-R  (192.168.3.2)  -- light load inventory
+111 loads across 36 rooms
+
+     ID  ROOM                     NAME                         DIMMABLE
+------------------------------------------------------------------------
+  52909  Bar                      Downlights                   yes
+  52882  Bar                      Island Pendants              yes
+  52897  Bar                      Main Pendant                 yes
+  52927  Bar                      Pantry Countertop            yes
+  52930  Bar                      Pantry Downlight             yes
+  52134  Dining Room              Chandelier                   yes
+  52903  Dining Room (New)        Inner Downlights             yes
+  52891  Dining Room (New)        Outer Downlights             yes
+  52900  Dining Room (New)        Table Pendants               yes
+  52888  Downstairs Hallway East  East Hallway Downlights      yes
+  52943  Downstairs Hallway East  East Stairwell               yes
+  52857  Downstairs Hallway East  Elevator Downlights          yes
+  52906  Downstairs Hallway East  North Hallway Downlights     yes
+  52068  Downstairs Hallway West  Bedroom Vestibule            yes
+  52080  Downstairs Hallway West  Downlights                   yes
+  52253  Family Room              Bar Cabinets                 yes
+  52250  Family Room              Bar Counter                  yes
+  52696  Family Room              Bathroom Pendant             yes
+  52693  Family Room              Bathroom Sink                yes
+  52238  Family Room              Front Cove                   yes
+  52301  Family Room              Pendant                      yes
+  52232  Family Room              Rear Cove                    yes
+  52247  Golf Simulator           Downlights                   yes
+  52241  Golf Simulator           LEDs                         yes
+  52736  Guest Bedroom            Bathroom Pendant             yes
+  52739  Guest Bedroom            Bathroom Vanity + Shower     yes
+  52708  Guest Bedroom            Entry                        yes
+  52730  Guest Bedroom            Outlet                       yes
+  52702  Guest Bedroom            Pendant                      yes
+  52758  Gym                      Downlights                   yes
+  52711  Gym                      Entry                        yes
+  52755  Gym                      Outlet                       yes
+  52705  Gym                      Pendant                      yes
+  52798  Jake’s Room              Bathroom DL + Vanity         yes
+  52642  Jake’s Room              Bathroom Pendant             yes
+  52974  Jake’s Room              Closet                       yes
+  52407  Jake’s Room              Entry Downlight              yes
+  52547  Jake’s Room              Pendant                      yes
+  52550  Jake’s Room              Shelf Light                  yes
+  52062  Kitchen                  Downlights                   yes
+  52845  Library                  Bookshelves - Left 1         yes
+  53082  Library                  Bookshelves - Left 2         yes
+  53028  Library                  Bookshelves - Right          yes
+  52851  Library                  Pendant                      yes
+  52833  Library Bathroom         Downlight & Sink             yes
+  52830  Library Bathroom         Vanity                       yes
+  52824  Library Bathroom         Water Closet                 yes
+  52836  Library Saferoom         Downlights                   yes
+  52842  Library Saferoom         Pendant                      yes
+  52065  Living Room              Chandelier                   yes
+  52624  Living Room              Downlights                   yes
+  53010  Master Bath              Downlights & Accents         yes
+  53016  Master Bath              Vanity                       yes
+  53020  Master Bath              Water Closet                 yes
+  52699  Master Bedroom           Bedside Outlets              yes
+  52071  Master Bedroom           Hallway Downlight            yes
+  52137  Master Bedroom           Her Closet                   yes
+  52140  Master Bedroom           His Closet                   yes
+  52104  Master Bedroom           Pendant                      yes
+  52074  Mudroom & Bathroom       Bathroom Pendant             yes
+  52077  Mudroom & Bathroom       Chandelier                   yes
+  52989  Mudroom & Bathroom       Downlights & Vanity          yes
+  52689  Office                   Bathroom Downlights & Pendant yes
+  52690  Office                   Bathroom Vanity              yes
+  52266  Office                   Entry Downlight              yes
+  52272  Office                   Outlet?                      yes
+  52278  Office                   Pendant                      yes
+  52275  Office                   Shelves                      yes
+  52131  Patio                    Outdoor                      yes
+  52636  Play Gym                 Entry                        yes
+  52749  Play Gym                 Outlet                       yes
+  52714  Play Gym                 Pendant                      yes
+  52871  Powder Room - East       Downlight & Vanity           yes
+  52865  Powder Room - East       Pendant                      yes
+  53001  Powder Room - West       Pendant                      yes
+  53007  Powder Room - West       Vanity                       yes
+  52683  Sara                     Bathroom Downlights & LEDs   yes
+  52677  Sara                     Bathroom Shower              yes
+  52680  Sara                     Bathroom Vanity              yes
+  52686  Sara                     Bathroom Water Closet        yes
+  52281  Sara                     Chandelier                   yes
+  52290  Sara                     Closet - Left                yes
+  52296  Sara                     Closet - Right               yes
+  52293  Sara                     Hallway Downlights           yes
+  52119  Stairwell - West Side    Stair Lights                 yes
+  52937  Upstairs Hallway North   East Hallway Downlights      yes
+  52940  Upstairs Hallway North   North Hallway East Side      yes
+  52597  Upstairs Hallway North   Outside Jake                 yes
+  52630  Upstairs Hallway North   Outside Zach                 yes
+  52262  Upstairs Hallway South   Downlights                   yes
+  52658  Upstairs Hallway South   West Hallway Downlights      yes
+  52633  Zach                     1-3                          yes
+  52645  Zach                     Bathroom Pendant             yes
+  52674  Zach                     Bathroom Sink                yes
+  52389  Zach                     Closet                       yes
+  52395  Zach                     Entry Downlight              yes
+  52398  Zach                     Outlet?                      yes
+  52401  Zach                     Pendant                      yes
+  52473  (unassigned)             CLW-DELVEX-P, Dimmer         yes
+  52603  (unassigned)             CLW-DELVEX-P, Dimmer         yes
+  52627  (unassigned)             CLW-DELVEX-P, Dimmer         yes
+  52116  (unassigned)             CLW-DELVEX-P, Dimmer         yes
+  52125  (unassigned)             CLW-DELVEX-P, Dimmer         yes
+  52717  (unassigned)             CLW-DELVEX-P, Dimmer         yes
+  52743  (unassigned)             CLW-DELVEX-P, Dimmer         yes
+  52648  (unassigned)             CLW-SWEX-P, Switch           yes
+  52287  (unassigned)             CLW-SWEX-P, Switch           yes
+  52544  (unassigned)             CLW-SWEX-P, Switch           yes
+  52986  (unassigned)             CLW-SWEX-P, Switch           yes
+  52980  (unassigned)             CLW-SWEX-P, Switch           yes
+  52983  (unassigned)             CLW-SWEX-P, Switch           yes
