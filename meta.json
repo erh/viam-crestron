@@ -1,7 +1,7 @@
 {
   "$schema": "https://dl.viam.dev/module.schema.json",
   "module_id": "erh:crestron",
-  "visibility": "private",
+  "visibility": "public",
   "url": "https://github.com/erh/viam-crestron/",
   "description": "Control Crestron Home lights (switches) and scenes (buttons) via /cws/api, with a shared controller and a discovery service.",
   "models": [
