@@ -8,22 +8,22 @@
     {
       "api": "rdk:component:generic",
       "model": "erh:crestron:controller",
-      "markdown_link": "README.md#controller"
+      "markdown_link": "README.md#viam-module"
     },
     {
       "api": "rdk:component:switch",
       "model": "erh:crestron:light",
-      "markdown_link": "README.md#light"
+      "markdown_link": "README.md#light-switch-config"
     },
     {
       "api": "rdk:component:button",
       "model": "erh:crestron:scene",
-      "markdown_link": "README.md#scene"
+      "markdown_link": "README.md#scene-button-config"
     },
     {
       "api": "rdk:service:discovery",
       "model": "erh:crestron:discovery",
-      "markdown_link": "README.md#discovery"
+      "markdown_link": "README.md#discovery-service"
     }
   ],
   "applications": null,
