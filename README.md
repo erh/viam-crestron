@@ -24,9 +24,28 @@ Two separate things:
 - **SSH / SFTP console** — the processor's admin username + password. Used by
   `crestron-console` and `crestron-fetch`. Set `CRESTRON_USER` / `CRESTRON_PASS`.
 - **Web API token** — a separate token for the REST API, generated in the
-  Crestron Home Setup app under *Installer Settings > System Control Options >
-  Web API*. Used by `crestron-cli` live commands. Set `CRESTRON_TOKEN`.
+  Crestron Home Setup app (see [Getting a Web API token](#getting-a-web-api-token)). Used by `crestron-cli` live commands. Set `CRESTRON_TOKEN`.
   The token stored in `SystemConfig.cfg` is a one-way hash and cannot be replayed.
+
+## Getting a Web API token
+
+The REST API (and so the Viam module) authenticates with a Web API token that
+you generate on the processor. You need installer access to Crestron Home.
+
+1. Open the **Crestron Home Setup** app and connect to the processor.
+2. Go to **Installer Settings > System Control Options > Web API Settings**.
+3. Turn **Web API** on. The processor generates an authorization token and shows it there.
+4. Copy the token. (**Update Token** issues a new one and invalidates the old one.)
+5. Put it in the controller's `token` attribute, or set `CRESTRON_TOKEN`.
+
+Check it works:
+
+```sh
+CRESTRON_TOKEN=<token> go run ./cmd/crestron-cli lights
+```
+
+The token stored in `SystemConfig.cfg` is a one-way hash, so pulling it off the
+processor over SFTP won't work; it has to come from the Setup app.
 
 ## Discovering lights without the token
 
@@ -74,7 +93,7 @@ attribute can be left out.
 | Attribute | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `host` | string | no | Processor address. Defaults to `CRESTRON_HOST`, then `192.168.3.2`. |
-| `token` | string | yes* | Web API token (Crestron Home Setup app > *Installer Settings > System Control Options > Web API*). *May instead come from `CRESTRON_TOKEN` (env, `CRESTRON_ENV` file, or `~/.crestron.env`). |
+| `token` | string | yes* | Web API token; see [Getting a Web API token](https://github.com/erh/viam-crestron#getting-a-web-api-token). *May instead come from `CRESTRON_TOKEN` (env, `CRESTRON_ENV` file, or `~/.crestron.env`). |
 | `user` | string | no | SSH/console username (not used for REST control). |
 | `password` | string | no | SSH/console password (not used for REST control). |
 
