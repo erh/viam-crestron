@@ -8,7 +8,7 @@
     {
       "api": "rdk:component:generic",
       "model": "erh:crestron:controller",
-      "markdown_link": "README.md#viam-module"
+      "markdown_link": "README.md#controller-config"
     },
     {
       "api": "rdk:component:switch",

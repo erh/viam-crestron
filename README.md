@@ -49,13 +49,88 @@ go run ./cmd/crestron-cli off 52062
 
 ## Viam module
 
-The module exposes three models:
+The module exposes four models:
 
 | Model | API | Purpose |
 |-------|-----|---------|
+| `erh:crestron:controller` | `rdk:component:generic` | Shared connection to the processor; every light/scene links to one. |
 | `erh:crestron:light` | `rdk:component:switch` | One light load. On/off loads are 2-position (Off/On); dimmable loads are 6-position (0/20/40/60/80/100%), with position labels. |
 | `erh:crestron:scene` | `rdk:component:button` | One scene. `Push` recalls it. |
 | `erh:crestron:discovery` | `rdk:service:discovery` | Discovers every light (switch) and scene (button) as ready-to-add component configs. |
+
+Each model's config is documented below; the samples are the `attributes`
+block. Name the controller `crestron-main` and the other models' `controller`
+attribute can be left out.
+
+### Controller config
+
+```json
+{
+  "host": "192.168.3.2",
+  "token": "<crestron web api token>"
+}
+```
+
+| Attribute | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `host` | string | no | Processor address. Defaults to `CRESTRON_HOST`, then `192.168.3.2`. |
+| `token` | string | yes* | Web API token (Crestron Home Setup app > *Installer Settings > System Control Options > Web API*). *May instead come from `CRESTRON_TOKEN` (env, `CRESTRON_ENV` file, or `~/.crestron.env`). |
+| `user` | string | no | SSH/console username (not used for REST control). |
+| `password` | string | no | SSH/console password (not used for REST control). |
+
+The controller polls all light levels every 4 seconds, so lights share a single
+request no matter how many there are.
+
+### Light switch config
+
+```json
+{
+  "controller": "crestron-main",
+  "id": 52062,
+  "dimmable": true
+}
+```
+
+| Attribute | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `id` | int | yes | Crestron load id (see discovery, `crestron-cli lights`, or `docs/lights-inventory.txt`). |
+| `controller` | string | no | Name of the `erh:crestron:controller` component. Default `crestron-main`. |
+| `dimmable` | bool | no | `true` gives six positions (0/20/40/60/80/100%); `false` gives Off/On. |
+| `steps` | int[] | no | Override the percentage for each position, e.g. `[0, 25, 50, 75, 100]`. |
+| `fade` | int | no | Transition time in tenths of a second (0 = instant). |
+
+### Scene button config
+
+```json
+{
+  "controller": "crestron-main",
+  "id": 52197
+}
+```
+
+| Attribute | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `id` | int | yes | Crestron scene id. `Push` recalls the scene. |
+| `controller` | string | no | Name of the `erh:crestron:controller` component. Default `crestron-main`. |
+
+### Discovery service
+
+```json
+{
+  "controller": "crestron-main",
+  "include_scenes": true
+}
+```
+
+| Attribute | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `controller` | string | no | Name of the `erh:crestron:controller` component. Default `crestron-main`; stamped into every discovered config. |
+| `include_scenes` | bool | no | Also discover scene buttons. Default `true`. |
+
+Run discovery from the Viam app (or SDK) to get a ready-to-add config for every
+light and scene.
+
+### Building
 
 Build with the Makefile (matches the standard Viam module layout):
 
@@ -68,47 +143,6 @@ make setup           # go mod tidy
 `meta.json` uses `build: make module.tar.gz` / `path: module.tar.gz` and builds
 for `linux/amd64`, `linux/arm64`, and `darwin/arm64`, so `viam module build` /
 `reload` produce the tarball automatically. The entrypoint is `bin/crestron-module`.
-The Web API token is resolved from `CRESTRON_ENV` (set in the module's `env`,
-pointing at a `KEY=value` file) or `CRESTRON_TOKEN`.
-
-Credentials: every model reads `host` / `token` from its config, falling back to
-`CRESTRON_HOST` / `CRESTRON_TOKEN` (env or `~/.crestron.env`). `host` defaults to
-`192.168.3.2`.
-
-### Light switch config
-
-```json
-{
-  "name": "kitchen-downlights",
-  "api": "rdk:component:switch",
-  "model": "erh:crestron:light",
-  "attributes": { "id": 52062, "dimmable": true }
-}
-```
-
-`dimmable` selects the default positions (six steps vs Off/On). Optional
-`steps` overrides the percentages, e.g. `"steps": [0, 25, 50, 75, 100]`;
-optional `fade` sets the transition time in tenths of a second.
-
-### Scene button config
-
-```json
-{
-  "name": "stairwell-all-on",
-  "api": "rdk:component:button",
-  "model": "erh:crestron:scene",
-  "attributes": { "id": 52197 }
-}
-```
-
-### Discovery service
-
-Add the service, then run discovery from the Viam app (or SDK) to get a config
-per light and scene:
-
-```json
-{ "name": "crestron-discovery", "api": "rdk:service:discovery", "model": "erh:crestron:discovery", "attributes": {} }
-```
 
 ## Bulk config generator
 
